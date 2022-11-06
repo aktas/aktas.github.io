@@ -1,7 +1,7 @@
-title: alperaktasm-Blog
-description: "A Jekyll Blog Theme For Hackers"
+title: Alper Aktaş-Blog
+description: "Kişisel blog."
 author:
-  name: "alperaktasm"
+  name: "aktas"
   email: "aktsalper@protonmail.com"
   url: "https://ashishchaudhary.in/hacker-blog"
 
@@ -28,5 +28,5 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "SomeHacker"
-year : "2020"
+owner : "aktas"
+year : "2022"
