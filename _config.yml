@@ -1,9 +1,8 @@
-title: Alper Aktaş-Blog
-description: "Kişisel blog."
+title: aktas
+description: "aktas'ın mekanı"
 author:
   name: "aktas"
   email: "aktsalper@protonmail.com"
-  url: "https://ashishchaudhary.in/hacker-blog"
 
 baseurl: /
 
