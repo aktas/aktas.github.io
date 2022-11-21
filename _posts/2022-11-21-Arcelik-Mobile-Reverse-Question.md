@@ -35,3 +35,18 @@ Output of the file:
     <ImageView android:id="@id/imageView" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="193.0dip" android:layout_marginBottom="194.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/qr" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+
+Here we see that the image named qr is displayed on the screen. We need to find the way of picture.
+
+```
+find RemoteWhiz -iname qr* 2>/dev/null
+```
+This command gives the path to the image. When we read the QR code in the picture, we get the flag.
+
+### [](#header-3)Solution 2
+
+
+
+
+
+
