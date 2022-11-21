@@ -68,8 +68,18 @@ After this process, the login screen welcomes us. We saw in the first solution t
 
 ![Login Layout Check](/assets/login.png)
 
+We know the username and password. But value of Allow method always returns false, we cannot pass the input validation. To circumvent this, we need to set the value of the Allow method to true by using the frida tool again.
 
+```
+Java.perform(function x() {
+        var Login = Java.use("com.cyberwhiz.remotewhiz.Login");
+        Login.Allow.implementation = function(){
+            return true;
+        }
+});
+```
 
+When we log in, we see the QR code with the flag. `Flag{71650949b76f628f6da8ca6fc820c320}`
 
 
 
