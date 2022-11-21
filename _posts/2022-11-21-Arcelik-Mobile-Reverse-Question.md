@@ -45,6 +45,29 @@ This command gives the path to the image. When we read the QR code in the pictur
 
 ### [](#header-3)Solution 2
 
+Examining the MainActivity class, we see that the isValid property of rooted devices is set to false. The isValid property must be true to display the login screen.
+
+![root check](/assets/rootCheck.png)
+
+![Login Layout Check](/assets/login_layout_check.png)
+
+We will use the frida tool to set the MainActivity class isValid property to true. After connecting to the application with Frida, we run the load below.
+
+```
+Java.perform(function x() {
+        var Test = Java.use("com.cyberwhiz.remotewhiz.Tv");
+        Test.isValid.implementation = function(){
+            return true;
+        }
+});
+```
+
+After this process, the login screen welcomes us. We saw in the first solution that there is login validation.
+
+![Login Layout Check](/assets/login_screen.png)
+
+![Login Layout Check](/assets/login.png)
+
 
 
 
