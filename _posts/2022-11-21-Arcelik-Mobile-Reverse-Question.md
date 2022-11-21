@@ -64,9 +64,9 @@ Java.perform(function x() {
 
 After this process, the login screen welcomes us. We saw in the first solution that there is login validation.
 
-![Login Layout Check](/assets/login_screen.png)
+![Login Screen](/assets/login_screen.png)
 
-![Login Layout Check](/assets/login.png)
+![Login Control](/assets/login2.png)
 
 We know the username and password. But value of Allow method always returns false, we cannot pass the input validation. To circumvent this, we need to set the value of the Allow method to true by using the frida tool again.
 
