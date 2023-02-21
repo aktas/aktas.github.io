@@ -1,6 +1,6 @@
 ---
 title: Graph Data Science With Networkx
-published: true
+published: false
 ---
 
 In this article, I will explain the graph theory used in data science projects. We will use the networkx library in python for this. 
