@@ -40,6 +40,8 @@ G.add_edges_from([('B','C'),('A','C')])
 Let's plot the graph we created using the matplotlib library.
 ```python
 import networkx as nx
+import matplotlib.pyplot as plt
+
 G = nx.Graph()
 G.add_node('A')              
 G.add_nodes_from(['B','C'])
@@ -56,6 +58,8 @@ plt.show()
 If you want to use a directional graph instead of an undirected graph, the output will be:
 ```python
 import networkx as nx
+import matplotlib.pyplot as plt
+
 G = nx.DiGraph()
 G.add_node('A')              
 G.add_nodes_from(['B','C'])
@@ -77,6 +81,9 @@ print(list(G.edges())) # gives links in a list.
 ```
 Also inspect the example below to create a new graph by combining the graphs.
 ```python
+import networkx as nx
+import matplotlib.pyplot as plt
+
 G1 = nx.complete_graph(5) # Creates a graph with 5 nodes.
 G2 = nx.complete_graph(5) 
 G2 = nx.relabel_nodes(G2, {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E'}) # We are changing the node names.
