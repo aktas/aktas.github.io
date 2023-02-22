@@ -51,7 +51,7 @@ nx.draw(G, with_labels=True)
 plt.show()
 ```
 
-<div style="text-align:center"><img src="/assets/Figure_1.png"></div>
+<div style="text-align:center"><img src="/assets/Figure_1.png" alt="Graph with networkx" ></div>
 
 If you want to use a directional graph instead of an undirected graph, the output will be:
 ```python
@@ -67,7 +67,7 @@ nx.draw(G, with_labels=True)
 plt.show()
 ```
 
-![Graph with networkx](/assets/Figure_2.png)
+<div style="text-align:center"><img src="/assets/Figure_2.png" alt="Graph with networkx" ></div>
 
 The following functions may be useful for you.
 ```python
@@ -88,5 +88,5 @@ nx.draw(G, with_labels=True)
 plt.show()
 ```
 
-![Graph with networkx](/assets/Figure_3.png)
+<div style="text-align:center"><img src="/assets/Figure_3.png" alt="Graph with networkx" ></div>
 
