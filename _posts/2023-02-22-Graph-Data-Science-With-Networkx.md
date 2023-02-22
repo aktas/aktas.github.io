@@ -69,13 +69,13 @@ plt.show()
 
 ![Graph with networkx](/assets/Figure_2.png)
 
-Also the following functions may be useful for you.
+The following functions may be useful for you.
 ```python
 print(nx.find_cores(G)) # shows the nodes and how many connections the nodes have in dictionary type.
 print(list(G.nodes())) # gives the nodes as a list.
 print(list(G.edges())) # gives links in a list.
 ```
-Additionally inspect the example below to create a new graph by combining the graphs.
+Also inspect the example below to create a new graph by combining the graphs.
 ```python
 G1 = nx.complete_graph(5) # Creates a graph with 5 nodes.
 G2 = nx.complete_graph(5) 
