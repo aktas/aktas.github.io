@@ -65,8 +65,19 @@ plt.show()
 ```
 Also the following functions may be useful for you.
 ```python
-print(nx.find_cores(G)) # düğümleri ve düğümlerin kaç tane bağlantısı olduğunu sözlük tipinde gösterir.
-print(list(G.nodes())) # düğümleri liste halinde verir.
-print(list(G.edges())) # bağlantıları liste halinde verir.
+print(nx.find_cores(G)) # shows the nodes and how many connections the nodes have in dictionary type.
+print(list(G.nodes())) # gives the nodes as a list.
+print(list(G.edges())) # gives links in a list.
 ```
+Additionally inspect the example below to create a new graph by combining the graphs.
+```python
+G1 = nx.complete_graph(5) # Creates a graph with 5 nodes.
+G2 = nx.complete_graph(5) 
+G2 = nx.relabel_nodes(G2, {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E'}) # We are changing the node names.
+G_connector = nx.from_edgelist([(4, 'X'), ('X','A')])
 
+G = nx.compose_all([G1, G2, G_connector]) # Creates a new graph by combining all given graphs.
+
+nx.draw(G, with_labels=True)
+plt.show()
+```
