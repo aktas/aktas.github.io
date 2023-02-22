@@ -50,6 +50,8 @@ G.add_edges_from([('B','C'),('A','C')])
 nx.draw(G, with_labels=True)
 plt.show()
 ```
+Result:
+![Graph with networkx](/assets/Figure_1.png)
 If you want to use a directional graph instead of an undirected graph, the output will be:
 ```python
 import networkx as nx
@@ -63,6 +65,8 @@ G.add_edges_from([('B','C'),('A','C')])
 nx.draw(G, with_labels=True)
 plt.show()
 ```
+Result:
+![Graph with networkx](/assets/Figure_2.png)
 Also the following functions may be useful for you.
 ```python
 print(nx.find_cores(G)) # shows the nodes and how many connections the nodes have in dictionary type.
@@ -81,3 +85,5 @@ G = nx.compose_all([G1, G2, G_connector]) # Creates a new graph by combining all
 nx.draw(G, with_labels=True)
 plt.show()
 ```
+Result:
+![Graph with networkx](/assets/Figure_3.png)
