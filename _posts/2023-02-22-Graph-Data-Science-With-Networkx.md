@@ -51,7 +51,7 @@ nx.draw(G, with_labels=True)
 plt.show()
 ```
 
-![Graph with networkx](/assets/Figure_1.png)
+<div style="text-align:center"><img src="/assets/Figure_1.png"></div>
 
 If you want to use a directional graph instead of an undirected graph, the output will be:
 ```python
