@@ -15,7 +15,7 @@ First we need to install the required library.
 ```python
 pip3 install networkx
 ```
-Now we can create an empty graph.
+We can create an empty graph.
 ```python
 import networkx as nx
 G = nx.Graph()
@@ -27,7 +27,7 @@ G = nx.Graph()
 G.add_node('A')                # We can add nodes one by one.
 G.add_nodes_from(['B','C'])    # We can also get the nodes from an array.
 ```
-Now let's add our connections.
+Let's add our connections.
 ```python
 import networkx as nx
 G = nx.Graph()
@@ -37,7 +37,7 @@ G.add_nodes_from(['B','C'])
 G.add_edge('A','B')                     
 G.add_edges_from([('B','C'),('A','C')])
 ```
-Now let's plot the graph we created using the matplotlib library.
+Let's plot the graph we created using the matplotlib library.
 ```python
 import networkx as nx
 G = nx.Graph()
@@ -50,3 +50,23 @@ G.add_edges_from([('B','C'),('A','C')])
 nx.draw(G, with_labels=True)
 plt.show()
 ```
+If you want to use a directional graph instead of an undirected graph, the output will be:
+```python
+import networkx as nx
+G = nx.DiGraph()
+G.add_node('A')              
+G.add_nodes_from(['B','C'])
+
+G.add_edge('A','B')                     
+G.add_edges_from([('B','C'),('A','C')])
+
+nx.draw(G, with_labels=True)
+plt.show()
+```
+Also the following functions may be useful for you.
+```python
+print(nx.find_cores(G)) # düğümleri ve düğümlerin kaç tane bağlantısı olduğunu sözlük tipinde gösterir.
+print(list(G.nodes())) # düğümleri liste halinde verir.
+print(list(G.edges())) # bağlantıları liste halinde verir.
+```
+
