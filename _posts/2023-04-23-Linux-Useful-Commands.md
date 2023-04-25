@@ -54,6 +54,12 @@ find / -type f \( -name note1 -o -name note2 -o -name note3 \) -exec ls -la {} \
 find . -type f -exec strings {} \; | grep -i "STMCTF"
 ```
 
+### [](#header-3)STRINGS
+```
+strings -e l -n 10 notes
+strings -f -n 10 notes
+```
+
 
 
 
