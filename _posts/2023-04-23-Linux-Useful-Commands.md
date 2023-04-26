@@ -60,7 +60,16 @@ strings -e l -n 10 notes
 strings -f -n 10 notes
 ```
 
-
+### [](#header-3)TCPDUMP
+```
+tcpdump -r network.pcap tcp
+tcpdump -r network.pcap tcp -v
+tcpdump -r network.pcap port <port_numarası>
+tcpdump -r network.pcap src <kaynak_ip_adresi>
+tcpdump -r network.pcap src <kaynak_ip_adresi> and dst <hedef_ip_adresi>
+tcpdump -r network.pcap host <ip_adresi> and port <port_numarası>
+tcpdump -r network.pcap -w filtered.pcap tcp
+```
 
 
 
