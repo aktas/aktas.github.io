@@ -1,6 +1,6 @@
 ---
 title: Arçelik Mobile Reverse Question
-published: false
+published: true
 ---
 
 ![Arçelik Tv](/assets/tv.png)
