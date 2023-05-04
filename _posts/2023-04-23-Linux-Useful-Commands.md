@@ -71,6 +71,14 @@ tcpdump -r network.pcap host <ip_adresi> and port <port_numarası>
 tcpdump -r network.pcap -w filtered.pcap tcp
 ```
 
+### [](#header-3)CRUNCH
+```
+crunch 5 6 "20341zxcvbn_masdfghjklqwerityuıopH\!" -o wordlist.txt
+crunch 3 3 abcdefghijklmnopqrstuvwxyz -o wordlist.txt
+crunch 3 3 -t @%, -o custom_wordlist.txt
+crunch 5 8 abcdefghijklmnopqrstuvwxyz -d 2@ -o no_repeat_wordlist.txt # not use 2 consecutive letters
+crunch 5 8 -t ^l^u^@ -o mixed_case_wordlist.txt
+```
 
 
 
