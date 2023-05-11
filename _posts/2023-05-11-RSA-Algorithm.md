@@ -3,7 +3,9 @@ title: RSA Algorithm
 published: true
 ---
 
-![rsa](/assets/rsa.jpg)
+<p align="center">
+  <img width="460" height="300" src="/assets/rsa.jpg">
+</p>
 
 ### [](#header-3)What is the RSA algorithm?
 RSA (Rivest-Shamir-Adleman) is an asymmetric encryption algorithm often used in situations such as internet traffic and VPN networks. The RSA algorithm relies on the difficulty of factoring the product of large prime numbers. This feature ensures the security of RSA. Linux users like me know that ssh services use rsa key pairs.
