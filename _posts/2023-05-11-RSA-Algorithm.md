@@ -62,4 +62,39 @@ openssl pkeyutl -encrypt -pubin -inkey public_key.pem -in plain_text.txt -out en
 openssl pkeyutl -decrypt -inkey private_key.pem -in encrypted_text.txt -out decrypted_text.txt
 ```
 
+Also if you want to read n e d values from PEM file run this script:
+
+```
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.backends import default_backend
+
+# Özel anahtarı okuma
+with open("private_key.pem", "rb") as key_file:
+    private_key = serialization.load_pem_private_key(
+        key_file.read(),
+        password=None,
+        backend=default_backend()
+    )
+
+# Açık anahtarı okuma
+with open("public_key.pem", "rb") as key_file:
+    public_key = serialization.load_pem_public_key(
+        key_file.read(),
+        backend=default_backend()
+    )
+
+# Anahtar bileşenlerine erişme
+private_numbers = private_key.private_numbers()
+public_numbers = public_key.public_numbers()
+
+print("Private Key:")
+print("n:", private_numbers.public_numbers.n)
+print("e:", private_numbers.public_numbers.e)
+print("d:", private_numbers.d)
+
+print("Public Key:")
+print("n:", public_numbers.n)
+print("e:", public_numbers.e)
+```
+
 
