@@ -4,7 +4,7 @@ published: true
 ---
 
 <p align="center">
-  <img width="460" height="300" src="/assets/CBC-MAC.png">
+  <img width="460" height="300" src="/assets/CBC-MAC-2.png">
 </p>
 
 In this article, you will understand how the cbc-mac algorithm works and you will be tested with a challenge.
@@ -128,15 +128,17 @@ We will append this calculated value to the original plain text and send it for 
 
 ### [](#header-3)Why does this work ?
 
-> T1 = Encryption(A , key)
-> E = A xor T1
-> .
-> When we send a message A||E,
-> A being the first block, gets treated the same as before, yeilding T1 as the cipher. 
-> Now this cipher is XORed with E, the next block. 
-> But, T1 xor E ==> T1 xor T1 xor A => A
-> Hence the Tag from the second encryption function is Tag = Encryption(E xor T1, key)  = Encryption(A, key) = T1
-> Thus, the tag is predicable.
+```
+T1 = Encryption(A , key)
+E = A xor T1
+
+When we send a message A||E,
+A being the first block, gets treated the same as before, yeilding T1 as the cipher. 
+Now this cipher is XORed with E, the next block. 
+But, T1 xor E ==> T1 xor T1 xor A => A
+Hence the Tag from the second encryption function is Tag = Encryption(E xor T1, key)  = Encryption(A, key) = T1
+Thus, the tag is predicable.
+```
 
 The full solution is provided here:
 
