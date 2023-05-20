@@ -1,5 +1,5 @@
 ---
-title: How does the CBC-MAC algorithm work?
+title: How Does the CBC-MAC Algorithm Work?
 published: true
 ---
 
@@ -130,8 +130,8 @@ We will append this calculated value to the original plain text and send it for 
 
 > T1 = Encryption(A , key)
 > E = A xor T1
-> 
-> When we send a message A||E, 
+> .
+> When we send a message A||E,
 > A being the first block, gets treated the same as before, yeilding T1 as the cipher. 
 > Now this cipher is XORed with E, the next block. 
 > But, T1 xor E ==> T1 xor T1 xor A => A
