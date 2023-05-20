@@ -177,3 +177,5 @@ forgeMessage(p, B + E, t1)
 
 p.interactive()
 ```
+
+> CBC-MAC schemes are vulnerable to forgery if messages of arbitrary length are allowed.
