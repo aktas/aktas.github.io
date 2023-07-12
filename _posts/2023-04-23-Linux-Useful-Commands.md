@@ -77,8 +77,30 @@ crunch 5 6 "20341zxcvbn_masdfghjklqwerityuıopH\!" -o wordlist.txt
 crunch 3 3 abcdefghijklmnopqrstuvwxyz -o wordlist.txt
 crunch 3 3 -t @%, -o custom_wordlist.txt
 crunch 5 8 abcdefghijklmnopqrstuvwxyz -d 2@ -o no_repeat_wordlist.txt # not use 2 consecutive letters
-crunch 5 8 -t ^l^u^@ -o mixed_case_wordlist.txt
+crunch 6 6 -t ^l^u^@ -o mixed_case_wordlist.txt
+# @ - lower case alpha characters
+# , - upper case alpha characters
+# % - numeric characters
+# ^ - special characters including space
 ```
+
+### [](#header-3)RDP
+```
+xfreerdp /u:kullanici_adi /p:parola /v:ip_adresi
+rdesktop 10.10.81.92
+```
+
+### [](#header-3)MYSQL
+```
+systemctl enable --now mysql
+systemctl stop mysql
+mysql -u root -p
+show databases;
+use users;
+show tables;
+DESCRIBE users;
+```
+
 
 
 
