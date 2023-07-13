@@ -87,6 +87,7 @@ crunch 6 6 -t ^l^u^@ -o mixed_case_wordlist.txt
 ### [](#header-3)RDP
 ```
 xfreerdp /u:kullanici_adi /p:parola /v:ip_adresi
+xfreerdp /dynamic-resolution +clipboard /cert:ignore /v:MACHINE_IP /u:Administrator /p:'TryH4ckM3!'
 rdesktop 10.10.81.92
 ```
 
