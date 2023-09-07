@@ -1,5 +1,5 @@
 ---
-title: [TR]Debugging with Radare2
+title: Debugging with Radare2 [TR]
 published: true
 ---
 
