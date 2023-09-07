@@ -16,7 +16,7 @@ title: About
 
 <p>This blog contains many notes about reverse engineering topics. They are my notes of everything I learn in my free time, CTF and malware analysis. I hope it helps you.</p>
 
-<h1>social medias</h1>
+<h1>Social medias</h1>
 
 <ul>
     <li><a href="https://www.linkedin.com/in/alperaktasm/">LinkedIn</a></li>
