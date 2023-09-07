@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-<center><img src="assets/waltz2.gif" style="border-radius:50%;"></center>
+<center><img src="assets/waltz.gif"></center>
 <br><br>
 <h1>About me</h1>
 
