@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-<center><img src="assets/waltz.gif"></center>
+<center><img src="assets/waltz2.gif" style="border-radius:50%;"></center>
 <br><br>
 <h1>About me</h1>
 
@@ -13,9 +13,9 @@ title: About
     <li>Malware Analyst</li>
     <li>Security Analyst</li>
 </ul>
-<br>
+
 <p>This blog contains many notes about reverse engineering topics. They are my notes of everything I learn in my free time, CTF and malware analysis. I hope it helps you.</p>
-<br>
+
 <h1>social medias</h1>
 
 <ul>
