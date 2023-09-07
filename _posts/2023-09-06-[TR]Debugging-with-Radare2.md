@@ -1,6 +1,6 @@
 ---
 title: Debugging with Radare2
-published: false
+published: true
 ---
 
  
@@ -175,7 +175,7 @@ Sıradaki adım bu değerlerin ne ile xorlandığını bulmak olmalı. Breakpoin
 0x7ffecd355300  0800 0000 0a00 0000 0096 8cd7 1d7f 0000  ................
 ```
 
-Bu değerlerin şifrelenmiş stringimiz ile `xor` işlemine sokulduğunu anlıyoruz. Değerler decimal formatta kullanılıyor ve `cf01` den itibaren 2 ye ayrılıyor. Deneme yanılma yoluyla uğraştıktan sonra sıra sıra bu sayıların alındığını ve xor işlemine sokulduğunu anlıyoruz.
+Bu değerlerin şifrelenmiş stringimiz ile `xor` işlemine sokulduğunu anlıyoruz. Değerler decimal formatta kullanılıyor ve `cf01` den itibaren 2 ye ayrılıyor. Deneme yanılma yoluyla biraz uğraştıktan sonra sıra sıra bu sayıların alındığını ve xor işlemine sokulduğunu anlıyoruz.
 
 ```
 ┌──(alper㉿nobody)-[~/Masaüstü]
@@ -196,11 +196,10 @@ Bu değerlerin şifrelenmiş stringimiz ile `xor` işlemine sokulduğunu anlıyo
 '{'
 ```
 
-Geriye ufak bir script ile 
+Geriye ufak bir script ile bayrağı almak kalıyor.
 
 ```
 from pwn import xor
-
 
 cipher = "_WZIQ[|gfaaswt^+DNgngcHkjtunYISL@w"
 hex1 = "0c 02 17 09 05 06 07 08 09 01 14 0c 13 0e 01 10 11 10 01 02 06 0c 17 18 05 10 07 1c 06 1e 1f 18 07 09"
@@ -217,7 +216,10 @@ for i,letter in enumerate(cipher):
     else:
         print((xor(letter, dec2[i])).decode(), end="")
 
+# Flag -> STMCTF{sonunda_8u_flag_dogru_FLAG} 
 ```
+
+
 
 
 
