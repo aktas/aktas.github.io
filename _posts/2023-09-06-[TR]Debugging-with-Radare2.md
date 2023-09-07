@@ -1,11 +1,10 @@
 ---
-title: Debugging with Radare2
+title: [TR]Debugging with Radare2
 published: true
 ---
 
  
-
-![Radare2](/assets/radare2.jpg)
+<div style="text-align:center"><img src="/assets/radare2.jpg" alt="Radare2" ></div>
 
 Eğer ELF dosyasını hata ayıklamak istiyorsanız, IDA ve Ghidra araçları yerine Radare2'yi kullanmayı düşünebilirsiniz. Şahsen, Radare2'nin bazı durumlarda hata ayıklama işlemini kolaylaştırdığına inanıyorum. Eğer benim gibi bir Linux kullanıcısıysanız ve tersine mühendislikle ilgileniyorsanız, terminal kolaylığından bu aracı kullanabilirsiniz.
 
