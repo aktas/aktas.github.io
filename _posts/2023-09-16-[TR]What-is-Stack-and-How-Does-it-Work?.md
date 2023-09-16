@@ -18,7 +18,7 @@ Stack tasarımı dizi üzerinde veya bağlı liste ile yapılabilir. Bu yazıda 
 
 Yukarıdaki resmi inceleyelim. `3 boyutlu` bir dizi olduğunu görüyoruz. Başta bu dizi eleman içermiyor. Diziye `push` ile sırasıyla `7` `13` `17` elemanları ekleniyor ve dizi doluyor. Eleman çıkarmak istediğimizde ise `pop` işlemi ile aynı şekilde son eklenen elemanı çıkarabiliriz. 
 
-Burada dikkat çekmek istediğim bir diğer nokta, eğer diziye tamamen dolu olduğu halde eleman eklemeye devam edersek bu eklenen eleman diziden taşacak ve sonraki stack değerinin üzerine yazılıp stack overflow olarak isimlendirilen açık meydana gelecektir. Bu açığa ait örnekleri sonraki yazılarda ele alacağım. 
+Burada dikkat çekmek istediğim bir diğer nokta, eğer diziye tamamen dolu olduğu halde eleman eklemeye devam edersek bu eklenen eleman diziden taşacak ve sonraki stack değerinin üzerine yazılıp `stack overflow` olarak isimlendirilen açık meydana gelecektir. Bu açığa ait örnekleri sonraki yazılarda ele alacağım. 
 
 
 
