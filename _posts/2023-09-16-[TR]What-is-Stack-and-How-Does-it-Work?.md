@@ -1,6 +1,6 @@
 ---
 title: What is stack and how does it work?[TR]
-published: true
+published: false
 ---
 
 
