@@ -24,6 +24,7 @@ Her ne kadar tekniğin ismi `Impossible Disassembly` olsa da çözümü oldukça
 <div style="text-align:center"><img src="/assets/opcode_patching.png" alt="FlapJack Captain" ></div>
 <div style="text-align:center"><img src="/assets/ImpossibleDisassembly2.png" alt="FlapJack Captain" ></div>
 
+32 bit programlarda bu tekniği otomatik olarak çözen script'e [bu](https://github.com/aktas/Anti-Analysis/tree/main/ImpossibleDisassembly) linkten ulaşabilirsiniz.
 
 
 
