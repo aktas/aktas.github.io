@@ -11,7 +11,7 @@ title: About
     <li>Reverse Engineer</li>
     <li>Ethical Hacker</li>
     <li>Malware Analyst</li>
-    <li>Blue Team member</li>
+    <li>Red Team member</li>
 </ul>
 
 <p>This blog contains many notes about reverse engineering topics. They are my notes of everything I learn in my free time, CTF and malware analysis. I hope it helps you.</p>
