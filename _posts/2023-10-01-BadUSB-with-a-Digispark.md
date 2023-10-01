@@ -7,9 +7,11 @@ published: true
 
 Bu yazıda, bir siber güvenlik araştırmacısı olarak USB aygıtının klavye olarak algılanmasını sağlayan BadUSB'ye dair kullanılan tekniklerden bahsedecek ve olası senaryolarla nasıl uygulandığını göstereceğim. Yazının sonunda alınabilecek önlemlere de değineceğim. 
 
-Eğer linux ortamında testleri gerçekleştiriyorsanız bu linkten faydalanabilirsiniz.
+Eğer linux ortamında testleri gerçekleştiriyorsanız kurulum aşamasında [bu](https://startingelectronics.org/tutorials/arduino/digispark/digispark-linux-setup/) linkten faydalanabilirsiniz.
 
-Arduino IDE yazdığımız komutları badUSB ye yüklemeden önce klavyeyi türkçe olarak ayarladığınızdan emin olun. Resimde tuş girdilerini nasıl kullanacağımızı görebilirsiniz.
+Arduino IDE ile yazdığımız komutları BadUSB ye yüklemeden önce klavyeyi türkçe olarak ayarladığınızdan emin olun. [Buradaki](assets/DigisparkKeyboard.7z) klasörü plugins dizinine atmanız gerekiyor.
+
+Resimde tuş girdilerini nasıl kullanacağımızı görebilirsiniz.
 
 <div style="text-align:center"><img src="/assets/4BGX18.png" alt="Klavye" ></div>
 
@@ -316,7 +318,7 @@ void loop() {
 ### [](#header-3)Önlemler
 
 Genel olarak BadUSB komutları, genellikle `Powershell` ve `CMD` betikleri aracılığıyla yürütüldüğünden, bu betiklerin kolayca açılmasını engelleyerek önlem alabiliriz. Bunun için aşağıdaki kodu powershell
-üzerinde çalıştırın. Bu komut ile powershell ve cmd betikleri açılmaya çalışıldığında şifre istenecek. Eski hale getirmek için değerini 5 olarak ayarlayın.
+üzerinde çalıştırın. Bu komut ile powershell ve cmd betikleri açılmaya çalışıldığında şifre istenecek. Eski hale getirmek isterseniz değerini `5` olarak ayarlayın.
 
 ```
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value 1
