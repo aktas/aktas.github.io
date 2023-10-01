@@ -1,6 +1,6 @@
 ---
 title: BadUSB with a Digispark[TR]
-published: false
+published: true
 ---
 
 <div style="text-align:center"><img src="/assets/myprecious.jpg" alt="Anlık Lamer'lar" ></div>
