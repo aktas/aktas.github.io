@@ -7,7 +7,7 @@ published: true
 
 Günümüzde, kötü niyetli yazılım geliştiricileri yazdıkları kötü amaçlı yazılımların incelenmesini zorlaştırmak için "Anti-analiz" olarak adlandırılan teknikleri kullanır. Bu teknikler, malware analistlerin sıkça kullandığı analiz araçlarını ve yöntemlerini etkisiz hale getirmeyi veya karmaşıklaştırmayı amaçlar. Bu araçlar ve yöntemler arasında disassembling, debugging ve virtual machine bulunabilir.
 
-Bu yazıda size öğrendiğim teknikleri göstereceğim. Yazı, yeni teknikler öğrendikçe sürekli olarak güncellenecektir.
+Bu yazıda size öğrendiğim teknikleri göstereceğim. Yazı, yeni teknikler öğrendikçe sürekli olarak güncellenecektir. Kodların tamamına ulaşmak için [bu repo](https://github.com/aktas/Anti-Analysis)'yu ziyaret edin.
 
 ### [](#header-2)Anti Disassembly Techniques
 
