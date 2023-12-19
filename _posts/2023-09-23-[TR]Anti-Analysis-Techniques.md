@@ -385,7 +385,7 @@ int main()
 }
 ```
 
-### [](#header-3)Xor
+### [](#header-3)AES Encrypt/Decrypt
 
 Daha güçlü şifreleme yöntemleri için `AES Encrypt/Decrypt` kullanılabilir. Bu örnek biraz karmaşık gelebilir fakat `encrypt` ve `decrypt` fonksiyonlarının kullanılacağını unutmayın.
 
