@@ -4,7 +4,7 @@ title: About
 ---
 
 <center><img src="assets/sauron.jpg"></center>
-<br>
+
 <h1>About me</h1>
 
 <ul>
@@ -24,3 +24,4 @@ title: About
     <li><a href="https://github.com/aktas">Github</a></li>
     <li><a href="https://tryhackme.com/p/aktas">TryHackMe</a></li>
 </ul>
+<br>
