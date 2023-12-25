@@ -4,7 +4,7 @@ title: About
 ---
 
 <center><img src="assets/sauron.jpg"></center>
-<br><br>
+<br>
 <h1>About me</h1>
 
 <ul>
