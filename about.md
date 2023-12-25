@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-<center><img src="assets/waltz.gif"></center>
+<center><img src="assets/sauron.jpg"></center>
 <br><br>
 <h1>About me</h1>
 
@@ -11,6 +11,7 @@ title: About
     <li>Reverse Engineer</li>
     <li>Ethical Hacker</li>
     <li>Malware Analyst</li>
+    <li>Data Analyst</li>
     <li>Red Team member</li>
 </ul>
 
