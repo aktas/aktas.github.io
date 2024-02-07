@@ -76,7 +76,40 @@ Now let's move on to another example. This time we will use a debugger. Download
 
 ## Crackme-2
 
+This example is a simple crackme file. When we run the program, we see that it asks us for a key. 
+
+<img src="/assets/heavens_gate_screenshot8.png" alt="Heaven's Gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+We need to find the `key`. When we open the file with CFF Explorer, we see that it is 32-bit.
+
+<img src="/assets/heavens_gate_screenshot9.png" alt="CFF Explorer" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+Open the file with x32dbg and go to entrypoint. click f9. You will be asked to enter to valid key. Go to the stack calls section. Right-click and click show suspected call stack frame and show active call stack frame respectively. Go to the relevant address by clicking on the last call.
+
+<img src="/assets/heavens_gate_screenshot10.png" alt="x32dbg call stack" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+When we go to the address, we see the scanf call. Let's put a breakpoint just below it and enter a key from the terminal.
+
+<img src="/assets/heavens_gate_screenshot11.png" alt="x32dbg" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+Keep moving forward with f8. You will come to the following address.
+
+<img src="/assets/heavens_gate_screenshot12.png" alt="x32dbg" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+When we examine the commands, we see that it compares the value at the 8DA480 address with 0 and if it is equal, it prints Wrong on the screen, if not equal, Correct! 
+
+There must be a control function at this point. This function appears to be located at address `8D1AA0`. Let's continue the analysis by going inside this function.
+
+As we proceed step by step, we see that 7 characters of the password we enter are taken and moved to the registers.
+
+<img src="/assets/heavens_gate_screenshot13.png" alt="x32dbg heaven's gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+We've come to the difficult part:
+
 to be continued...
+
+
+## Challenge!
 
 
 
