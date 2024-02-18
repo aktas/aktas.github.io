@@ -21,7 +21,9 @@ defaults:
       layout: "post"
 
 future: true
+remote_theme: jekyll/minima
 plugins:
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
