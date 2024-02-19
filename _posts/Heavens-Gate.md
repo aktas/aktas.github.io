@@ -18,7 +18,11 @@ In this article, we will examine one of the anti-debug techniques, `Heaven's Gat
 > The mode (32bit/64bit) in which `CS` (CodeSelector) related operations will run is specified.
 > If the value of the `CS` register is `0x23`, operations are executed in `32-bit` and in `64-bit` if the value is `0x33`.
 
-This technique is intended to prevent detailed analysis by the debugger. It is also intended to confuse the analyst.
+If a 64-bit process runs from a 32-bit process, the program will switch to the System32 subsystem and use the relevant dll files. Heaven's Gate can be used when a 32-bit program needs to access 64-bit system libraries or interfaces that are not available in 32-bit mode.
+
+> In 64-bit windows, 64-bit system files are located in `%SystemRoot%\System32` and 32-bit system files are located in `%SystemRoot%\SysWOW64`. 
+
+This technique is intended to prevent detailed analysis by the debugger. It is also intended to confuse the analyst. Known as the `evasion` technique.
 
 ![](/assets/d2.png)
 
@@ -106,8 +110,25 @@ As we proceed step by step, we see that 7 characters of the password we enter ar
 
 We've come to the difficult part:
 
-to be continued...
+Let's examine the picture above carefully. We see that `0x33` is pushed to the stack. Then we see that the `call $0` instruction is called. So what is `call $0`?
 
+The `call $0` instruction actually returns the next address. let's go ahead and execute the `call $0` instruction. Look carefully at what happened.
+
+<img src="/assets/heavens_gate_screenshot15.png" alt="call $0 instruction" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+We see that the ESP is pointing the EIP address. When we execute the current instruction, we see that 0x05 bytes will be added to the value pointed to by ESP. Click f8 and Follow the value of esp in the dump.
+
+<img src="/assets/heavens_gate_screenshot16.png" alt="call $0 instruction" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+When we look at the dump, we see that the value of ESP is `003917FD`. When the 'ret far' instruction is executed, this is the address to jump away from. Remember that 33 was pushed into the stack. So now code will run in 64-bit and we will not be able to continue the analysis with x32dbg.
+
+At this point we need to continue with x64dbg. Open a 64-bit program on x64dbg and go to entrypoint. Copy the code to be executed with 'ret far' until the next 'ret far' command from binary->copy and paste it into the entrypoint in x64dbg from binary->Paste(Ignore Size).
+
+<img src="/assets/heavens_gate_screenshot2.png" alt="Heaven's Gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+Analyze it! 
+
+<img src="/assets/heavens_gate_screenshot17.png" alt="Heaven's Gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
 
 ## Challenge!
 
