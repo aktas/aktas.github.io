@@ -130,6 +130,32 @@ Analyze it!
 
 <img src="/assets/heavens_gate_screenshot17.png" alt="Heaven's Gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
 
+We see that the first 2 characters are `h` and `3`. Then the value of size rcx is extracted from the stack and the rcx register is updated. Remember that the 3rd character of the password is pushed to the stack. Let's remember the relevant field:
+
+```
+006917C0 | A0 76A46900              | mov al,byte ptr ds:[69A476]                              | 0069A476:"ssword"
+006917C5 | 8A1D 77A46900            | mov bl,byte ptr ds:[69A477]                              | 0069A477:"sword"
+006917CB | 8A0D 7AA46900            | mov cl,byte ptr ds:[69A47A]                              | 0069A47A:"rd"
+006917D1 | 6A 00                    | push 0                                                   |
+006917D3 | 51                       | push ecx                                                 |
+006917D4 | 6A 00                    | push 0                                                   |
+006917D6 | 53                       | push ebx                                                 |
+006917D7 | 6A 00                    | push 0                                                   |
+006917D9 | 50                       | push eax                                                 |
+```
+
+The 7th, 4th and 3rd characters of the password are pushed onto the stack respectively. The instruction 'pop rcx' will pop a 64-bit value from the stack. The 'push 0' instruction in between sets 32 bits. Thus, when the 64-bit system is switched to, the values can be extracted and set properly. 
+
+So we understand that the 3rd character is `4` and the 4th character is `v`. Then we come up with two equations. These are:
+
+`RAX + RBX == 0xB3`
+`((2 * (RAX-RBX)) - RBX) == 0x1C` so `2*RAX - 3*RBX == 0x1C`
+
+When we solve the equation, we find RAX is `113` and RBX is `66`. If you have trouble solving equations, use [wolframalpha](https://www.wolframalpha.com/widgets/view.jsp?id=b42a80c01d9b3bb5bb385d4fba81a0c5).
+
+
+
+
 ## Challenge!
 
 
