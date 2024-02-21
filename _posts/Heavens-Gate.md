@@ -7,7 +7,7 @@ published: false
 
 ## Introduction
 
-In this article, we will examine one of the anti-debug techniques, `Heaven's Gate`. First we will explain this technique in detail and then we will analyze 2 simple crackme file. We will also have a nice challenge at the end of this article :))
+In this article, we will examine one of the anti-debug techniques, `Heaven's Gate`. First we will explain this technique in detail and then we will analyze 2 simple crackme file. By the end of this article, you will understand what to do when Heaven's Gate technique is encountered on IDA, x32dbg and WinDBG. We will also have a nice challenge at the end of this article :))
 
 ## What is Heaven's Gate?
 
@@ -78,7 +78,7 @@ Now let's move on to another example. This time we will use a debugger. Download
 
 ![](/assets/yoda.png)
 
-## Crackme-2
+## Crackme-2(x32dbg)
 
 This example is a simple crackme file. When we run the program, we see that it asks us for a key. 
 
@@ -148,13 +148,17 @@ The 7th, 4th and 3rd characters of the password are pushed onto the stack respec
 
 So we understand that the 3rd character is `4` and the 4th character is `v`. Then we come up with two equations. These are:
 
-`RAX + RBX == 0xB3`
-`((2 * (RAX-RBX)) - RBX) == 0x1C` so `2*RAX - 3*RBX == 0x1C`
+```RAX + RBX == 0xB3```
 
-When we solve the equation, we find RAX is `113` and RBX is `66`. If you have trouble solving equations, use [wolframalpha](https://www.wolframalpha.com/widgets/view.jsp?id=b42a80c01d9b3bb5bb385d4fba81a0c5).
+and
 
+```(0xB3 - RBX) + (0xB3 - RBX) - RBX == 0x1C``` so ```2*0xB3 - 3*RBX == 0x1C```
 
+When we solve the equation, we find RAX is `69(E)` and RBX is `110(n)`. We see that the last character is compared to `0`. This instruction checks whether the string has been terminated or not. As a result we find the key as `h34vEn`.
 
+<img src="/assets/heavens_gate_screenshot18.png" alt="Key" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+## Crackme-2(WinDBG)
 
 ## Challenge!
 
