@@ -1,17 +1,17 @@
 ---
 title: Heaven's Gate Technique
-published: false
+published: true
 ---
 
 <img src="/assets/heavens_gate_screenshot2.png" alt="Heaven's Gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
 
 ## Introduction
 
-In this article, we will examine one of the anti-debug techniques, `Heaven's Gate`. First we will explain this technique in detail and then we will analyze 2 simple crackme file. By the end of this article, you will understand what to do when Heaven's Gate technique is encountered on IDA, x32dbg and WinDBG. We will also have a nice challenge at the end of this article :))
+In this article, we will examine one of the anti-debug techniques, `Heaven's Gate`. First we will explain this technique in detail and then we will analyze 3 simple crackme file. By the end of this article, you will understand what to do when Heaven's Gate technique is encountered on `IDA`, `x32dbg` and `WinDBG`. We will also have a nice challenge at the end of this article :))
 
 ## What is Heaven's Gate?
 
-`Heaven's Gate` is a technique to run a 64-bit process from a 32-bit process or a 32-bit process from a 64-bit process. This technique can be realized by executing a `call` or `jmp` command using the reserved selector. So, what's the selector?
+`Heaven's Gate` is a technique to run a 64-bit process from a 32-bit process or a 32-bit process from a 64-bit process. This technique can be realized by executing a `call` or `jmp` instructions using the reserved selector. So, what's the selector?
 
 > Segmentation is a memory management technique used especially in the x86 architecture.
 > Special values that specify the segment to be used for memory access are called `segment selectors`.
@@ -28,7 +28,7 @@ This technique is intended to prevent detailed analysis by the debugger. It is a
 
 Okay, the best way to learn is to practice. Our first file is an elf file. Let's start analyzing it. Download [here](/assets/heavens_gate).
 
-## Crackme-1
+## Crackme-1(IDA)
 
 We see that the program is a 32-bit elf file. We also can't find anything in the strings. When we run the program it shows us "Where is the secret message????". We also can't find anything in strings.
 
@@ -56,7 +56,7 @@ Let's continue the analyze by going to the relevant address.
 
 <img src="/assets/heavens_gate_screenshot4.png" alt="Heaven's Gate with ida" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
 
-When we jump to the corresponding address, we see that the commands cannot be made sense of. When we jump to the address, we see that the instructions do not make sense. The reason for this is that the instructions at the address will be executed in 64-bit even though we examine the program in 32-bit with ida32. In this case we need to open ida64. Remember this:
+When we jump to the corresponding address, we see that the instructions cannot be made sense of. When we jump to the address, we see that the instructions do not make sense. The reason for this is that the instructions at the address will be executed in 64-bit even though we examine the program in 32-bit with ida32. In this case we need to open ida64. Remember this:
 
 > ida32 can only analyze 32-bit programs, while ida64 can analyze both 32-bit and 64-bit files.
 
@@ -68,11 +68,11 @@ Then return to the address, select further from the address, right-click and hav
 
 <img src="/assets/heavens_gate_screenshot6.png" alt="Heaven's Gate with ida" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
 
-You will see that relevant commands have been successfully analyzed.
+You will see that relevant instructions have been successfully analyzed.
 
 <img src="/assets/heavens_gate_screenshot7.png" alt="Heaven's Gate with ida" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
 
-We have seen that the secret message is `ZAYOTEM{H3AV3NS_GAT3}`. You can review the code of the program [here](https://github.com/aktas/Anti-Analysis/tree/main/anti-debug/HeavensGate).
+We have seen that the secret message is `ZAYOTEM{H3AV3NS_GAT3}`. You can review the code of the program [here](https://crackmes.one/crackme/63b15b5333c5d43ab4ecf226).
 
 Now let's move on to another example. This time we will use a debugger. Download [here](/assets/HeavensGate.exe). 
 
@@ -100,7 +100,7 @@ Keep moving forward with f8. You will come to the following address.
 
 <img src="/assets/heavens_gate_screenshot12.png" alt="x32dbg" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
 
-When we examine the commands, we see that it compares the value at the 8DA480 address with 0 and if it is equal, it prints Wrong on the screen, if not equal, Correct! 
+When we examine the instructions, we see that it compares the value at the 8DA480 address with 0 and if it is equal, it prints Wrong on the screen, if not equal, Correct! 
 
 There must be a control function at this point. This function appears to be located at address `8D1AA0`. Let's continue the analysis by going inside this function.
 
@@ -122,7 +122,7 @@ We see that the ESP is pointing the EIP address. When we execute the current ins
 
 When we look at the dump, we see that the value of ESP is `003917FD`. When the 'ret far' instruction is executed, this is the address to jump away from. Remember that 33 was pushed into the stack. So now code will run in 64-bit and we will not be able to continue the analysis with x32dbg.
 
-At this point we need to continue with x64dbg. Open a 64-bit program on x64dbg and go to entrypoint. Copy the code to be executed with 'ret far' until the next 'ret far' command from binary->copy and paste it into the entrypoint in x64dbg from binary->Paste(Ignore Size).
+At this point we need to continue with x64dbg. Open a 64-bit program on x64dbg and go to entrypoint. Copy the code to be executed with 'ret far' until the next 'ret far' instruction from binary->copy and paste it into the entrypoint in x64dbg from binary->Paste(Ignore Size).
 
 <img src="/assets/heavens_gate_screenshot2.png" alt="Heaven's Gate" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
 
@@ -158,9 +158,80 @@ When we solve the equation, we find RAX is `69(E)` and RBX is `110(n)`. We see t
 
 <img src="/assets/heavens_gate_screenshot18.png" alt="Key" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
 
-## Crackme-2(WinDBG)
+## Crackme-3(WinDBG)
+
+We have analyzed this technique with x32dbg and IDA, but if we encounter a difficult use case we should use WinDBG.
+
+> WinDBG is the only debugger that can track WoW transitions and detect architecture changes.
+
+You can download WinDBG [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools). Download the crackme file here.
+
+When we run the program, we see two messages.
+
+<img src="/assets/windbg_.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+OK. We need to find the flag. Open the crackme in WinDBG(x64) and set the WinDBG display.
+
+<img src="/assets/windbg1.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+First load the program by clicking `f5`. Enter the command `bp $exentry` in the commands field to set a breakpoint to the entrypoint. Click f5. You are at the entrypoint.
+
+<img src="/assets/windbg2.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+Go to the main function by pressing `f10`. When you get to the Main function, enter it with `f8`.
+
+<img src="/assets/windbg3.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+Once inside, analyze while moving forward with f10. We see the address where our first message is kept.
+
+<img src="/assets/windbg4.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+Go to the relevant address(00c23140) from the dump. You will see the first message.
+
+<img src="/assets/windbg5.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+Keep moving forward with f10. You will come to the far jump. We've talked about this place before so I won't mention it again. 
+
+<img src="/assets/windbg6.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+Check the registers before the far jump is made. 
+
+<img src="/assets/windbg7.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+Click f10 and check the registers again.
+
+<img src="/assets/windbg8.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+As you can see, the WoW transition was detected and the architecture changed. 
+
+Let's keep moving forward. Examine the code carefully.
+
+<img src="/assets/windbg9.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+We see that the address of a message is moved to edi. After the cl register is set to 7, the first 4 bytes of the address value are moved to the eax register. This value is xor'd with `53544B41` and the value of the address in the edi register is updated. By adding 4 bytes to the edi register and decrementing the cl register by 1, these operations are continued in a loop.
+
+Let's go to the relevant address(00c25058) and check what's there.
+
+<img src="/assets/windbg10.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;"  >
+
+We see an encrypted message. That our encrypted message will be decrypted. Continue with f10 until you exit the loop.
+
+<img src="/assets/windbg12.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+Check the value on the dump again.
+
+<img src="/assets/windbg11.png" alt="WinDBG" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
+
+We found the flag. `ZAYOTEM{reverse_with_windbg}`
 
 ## Challenge!
 
+I challenge you in the last part of this article! If you think you understand all this, accept the challenge and get the flag from the crackme [here](https://crackmes.one/crackme/65c2348eeef082e477ff6792). 
 
+## References
 
+* https://sachiel-archangel.medium.com/analysis-of-heavens-gate-part-1-62cca0ace6f0
+* https://www.malwaretech.com/2014/02/the-0x33-segment-selector-heavens-gate.html
+* http://blog.rewolf.pl/blog/?p=102
+* https://www.mandiant.com/resources/blog/wow64-subsystem-internals-and-hooking-techniques
+* https://hackforums.net/showthread.php?tid=6261198
