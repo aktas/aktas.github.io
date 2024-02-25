@@ -72,9 +72,9 @@ You will see that relevant instructions have been successfully analyzed.
 
 <img src="/assets/heavens_gate_screenshot7.png" alt="Heaven's Gate with ida" style="display:block; margin-right:auto; margin-left:auto; padding-bottom:20px;" >
 
-We have seen that the secret message is `ZAYOTEM{H3AV3NS_GAT3}`. You can review the code of the program [here](https://crackmes.one/crackme/63b15b5333c5d43ab4ecf226).
+We have seen that the secret message is `ZAYOTEM{H3AV3NS_GAT3}`. You can review the code of the program [here](https://github.com/aktas/Anti-Analysis/blob/main/anti-debug/HeavensGate/heavens_gate.asm).
 
-Now let's move on to another example. This time we will use a debugger. Download [here](/assets/HeavensGate.exe). 
+Now let's move on to another example. This time we will use a debugger. Download [here](https://crackmes.one/crackme/63b15b5333c5d43ab4ecf226). 
 
 ![](/assets/yoda.png)
 
@@ -164,7 +164,7 @@ We have analyzed this technique with x32dbg and IDA, but if we encounter a diffi
 
 > WinDBG is the only debugger that can track WoW transitions and detect architecture changes.
 
-You can download WinDBG [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools). Download the crackme file here.
+You can download WinDBG [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools). Download the crackme file [here](/assets/HeavensGate3.exe). .
 
 When we run the program, we see two messages.
 
