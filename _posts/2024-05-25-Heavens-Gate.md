@@ -7,7 +7,7 @@ published: true
 
 ## Introduction
 
-In this article, we will examine one of the anti-debug techniques, `Heaven's Gate`. First we will explain this technique in detail and then we will analyze 3 simple crackme file. By the end of this article, you will understand what to do when Heaven's Gate technique is encountered on `IDA`, `x32dbg` and `WinDBG`. We will also have a nice challenge at the end of this article :))
+In this article, we will examine one of the anti-debug techniques, `Heaven's Gate`. First we will explain this technique in detail and then we will analyze 3 simple crackme files. By the end of this article, you will understand what to do when Heaven's Gate technique is encountered on `IDA`, `x32dbg` and `WinDBG`. We will also have a nice challenge at the end of this article :))
 
 ## What is Heaven's Gate?
 
@@ -18,7 +18,7 @@ In this article, we will examine one of the anti-debug techniques, `Heaven's Gat
 > The mode (32bit/64bit) in which `CS` (CodeSelector) related operations will run is specified.
 > If the value of the `CS` register is `0x23`, operations are executed in `32-bit` and in `64-bit` if the value is `0x33`.
 
-If a 64-bit process runs from a 32-bit process, the program will switch to the System32 subsystem and use the relevant dll files. Heaven's Gate can be used when a 32-bit program needs to access 64-bit system libraries or interfaces that are not available in 32-bit mode.
+If a 64-bit process runs from a 32-bit file, the program will switch to the System32 subsystem and use the relevant dll files. Heaven's Gate can be used when a 32-bit program needs to access 64-bit system libraries or interfaces that are not available in 32-bit mode.
 
 > In 64-bit windows, 64-bit system files are located in `%SystemRoot%\System32` and 32-bit system files are located in `%SystemRoot%\SysWOW64`. 
 
