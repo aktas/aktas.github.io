@@ -1,3 +1,8 @@
+---
+title: Code Signing With Certificate
+published: true
+---
+
 # Code Signing With Certificate
 
 ## Introduction
