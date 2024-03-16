@@ -3,8 +3,6 @@ title: Code Signing With Certificate
 published: true
 ---
 
-# Code Signing With Certificate
-
 ## Introduction
 
 Malware developers are coming up with new techniques every day.  In order to prevent these techniques, products such as AV, EDR, IDS/IPS are constantly developing and updating. There is a conflict and a race. And is there a definitive solution to these threats?
