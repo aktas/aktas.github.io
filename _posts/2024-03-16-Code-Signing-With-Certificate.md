@@ -3,6 +3,8 @@ title: Code Signing With Certificate
 published: true
 ---
 
+<br />
+
 ## Introduction
 
 Malware developers are coming up with new techniques every day.  In order to prevent these techniques, products such as AV, EDR, IDS/IPS are constantly developing and updating. There is a conflict and a race. And is there a definitive solution to these threats?
@@ -215,7 +217,7 @@ rule CompromisedNvidia {
 }
 ```
 
-## Referans
+## Reference
 
 * https://cheapsslsecurity.com/blog/code-signing-101-how-to-sign-an-exe-or-application/
 * https://codesigningstore.com/how-to-sign-an-exe-with-a-digital-certificate
